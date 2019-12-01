@@ -11,7 +11,7 @@ import config
 
 
 # 설정
-driver = webdriver.Chrome('C:/Users/TJ/Downloads/chromedriver_win32/chromedriver')
+driver = webdriver.Chrome('C:/Users/TJ/PycharmProjects/suyou104/chromedriver_win32/chromedriver')
 suyu_URL = 'http://localhost:3000'
 
 # suyu104 로그인
@@ -37,8 +37,8 @@ suc_page = 0
 no_page = 0
 
 ############################### 반복구간 ######################################
-for i in range(1, max_page):
-# for i in [547]:
+# for i in range(1, max_page):
+for i in [700]:
     # 0. 해당 페이지가 존재하는지 확인
     targetUrl = url + str(i)
     # response = http.request('GET', targetUrl)
@@ -52,7 +52,7 @@ for i in range(1, max_page):
     _moduleName = driver.find_elements_by_class_name('category')
     if len(_moduleName) == 0:
         print(targetUrl + ' ::: 존재하지 않는 페이지')
-        no_page+=no_page
+        no_page+=1
         continue
     moduleName = _moduleName[0].find_elements_by_tag_name('a')[0].text
     moduleSrl = module_matcher.match(moduleName)
@@ -147,7 +147,7 @@ for i in range(1, max_page):
         print(targetUrl + ' : error')
 
     print(targetUrl + ' ::: 크롤링 완료')
-    suc_page+=suc_page
+    suc_page+=1
     results.append(document)
 
 result_log = '''
