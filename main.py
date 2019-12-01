@@ -12,12 +12,12 @@ import config
 
 # 설정
 driver = webdriver.Chrome('C:/Users/TJ/PycharmProjects/suyou104/chromedriver_win32/chromedriver')
-suyu_URL = 'http://localhost:3000'
+suyu_URL = config.suyuURL
 
 # suyu104 로그인
 driver.get(suyu_URL+'/member/login')
 driver.find_element_by_xpath('//*[@id="USER_ID"]').send_keys(config.suyuID)
-driver.find_element_by_xpath('//*[@id="PASSWORD"]').send_keys(config.syuyuPWD)
+driver.find_element_by_xpath('//*[@id="PASSWORD"]').send_keys(config.suyuPWD)
 driver.find_element_by_xpath('//*[@id="frm"]/table/tbody/tr[1]/td[3]/input').click()
 
 # tistory로그인
